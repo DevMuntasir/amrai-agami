@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageBanner } from "@/components/layout/PageBanner";
-import { ProductDetailsClient } from "./ProductDetailsClient";
+// import { ProductDetailsClient } from "./ProductDetailsClient";
 import { getProducts, getProductBySlug } from "@/sanity/lib/fetch";
 
 interface PageProps {
@@ -73,7 +73,7 @@ export default async function ProductDetailsPage({ params }: PageProps) {
 
       <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
-          <ProductDetailsClient product={product} />
+          {/* <ProductDetailsClient product={product} /> */}
         </div>
       </section>
     </>
