@@ -130,18 +130,20 @@ export default async function EventDetailsPage({ params }: PageProps) {
 
             {/* Sidebar */}
             <div className="lg:col-span-4 space-y-6">
-              <div className="p-6 bg-gray-50 rounded-3xl border border-gray-100">
-                <h4 className="text-base font-bold text-gray-900 mb-4">Event Organizer</h4>
-                <p className="text-sm font-bold text-gray-900 mb-1">{event.organizer.name}</p>
-                <p className="text-xs text-gray-600 mb-2">
-                  <i className="fa-solid fa-phone text-[#F00101] mr-2"></i>
-                  {event.organizer.phone}
-                </p>
-                <p className="text-xs text-gray-600">
-                  <i className="fa-regular fa-envelope text-[#002A8C] mr-2"></i>
-                  {event.organizer.email}
-                </p>
-              </div>
+              {event.organizer && (
+                <div className="p-6 bg-gray-50 rounded-3xl border border-gray-100">
+                  <h4 className="text-base font-bold text-gray-900 mb-4">Event Organizer</h4>
+                  <p className="text-sm font-bold text-gray-900 mb-1">{event.organizer.name}</p>
+                  <p className="text-xs text-gray-600 mb-2">
+                    <i className="fa-solid fa-phone text-[#F00101] mr-2"></i>
+                    {event.organizer.phone}
+                  </p>
+                  <p className="text-xs text-gray-600">
+                    <i className="fa-regular fa-envelope text-[#002A8C] mr-2"></i>
+                    {event.organizer.email}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

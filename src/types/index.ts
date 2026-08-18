@@ -97,3 +97,7 @@ export interface CartItem {
   product: Product;
   quantity: number;
 }
+
+export type CharityEvent = EventItem;
+export type FAQ = FaqItem;
+
