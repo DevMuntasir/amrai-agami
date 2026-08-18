@@ -50,7 +50,7 @@ export default function ContactUsPage() {
                   </div>
                   <div>
                     <h4 className="text-sm font-bold text-gray-900 mb-1">Main Headquarters</h4>
-                    <p className="text-xs text-gray-600">4517 Washington Ave, Manchester, Kentucky 39495</p>
+                    <p className="text-xs text-gray-600">3900, Feni sadar Feni, Bangladesh</p>
                   </div>
                 </div>
 
@@ -73,10 +73,10 @@ export default function ContactUsPage() {
                     <i className="fa-solid fa-phone"></i>
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-gray-900 mb-1">Phone Line</h4>
+                    <h4 className="text-sm font-bold text-gray-900 mb-1">Phone Number</h4>
                     <p className="text-xs text-gray-600">
-                      <a href="tel:+13055873407" className="hover:text-amber-600">
-                        +1 (305) 587-3407
+                      <a href="tel:+8801874303208" className="hover:text-amber-600">
+                        +880 1874303208
                       </a>
                     </p>
                   </div>

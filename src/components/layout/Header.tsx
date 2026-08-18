@@ -55,7 +55,7 @@ export const Header: React.FC<HeaderProps> = ({ variant = "primary" }) => {
                 support@amraiagami.org
               </a>
               <a
-                href="tel:+13055873407"
+                href="tel:+8801874303208"
                 className="hover:text-[#ff6b6b] transition flex items-center gap-2"
               >
                 <i className="fa-solid fa-phone text-[#F00101]"></i>
@@ -521,65 +521,7 @@ export const Header: React.FC<HeaderProps> = ({ variant = "primary" }) => {
                   </div>
                 )}
               </li>
-              <li>
-                <div
-                  onClick={() => toggleSubmenu("pages")}
-                  className="flex items-center justify-between py-2 border-b border-gray-100 cursor-pointer"
-                >
-                  <span>{t("nav_pages")}</span>
-                  <i
-                    className={`fa-solid fa-chevron-down text-xs transition ${activeSubmenu === "pages" ? "rotate-180 text-[#F00101]" : ""
-                      }`}
-                  ></i>
-                </div>
-                {activeSubmenu === "pages" && (
-                  <div className="pl-4 py-2 flex flex-col gap-2 text-xs text-gray-600 bg-gray-50 rounded-lg mt-1">
-                    <Link href="/our-team" onClick={() => setMobileMenuOpen(false)}>
-                      {t("nav_team")}
-                    </Link>
-                    <Link href="/become-volunteer" onClick={() => setMobileMenuOpen(false)}>
-                      {t("nav_volunteer")}
-                    </Link>
-                    <Link href="/donate-us" onClick={() => setMobileMenuOpen(false)}>
-                      {t("nav_donate")}
-                    </Link>
-                    <Link href="/faq" onClick={() => setMobileMenuOpen(false)}>
-                      {t("nav_faq")}
-                    </Link>
-                    <Link href="/privacy-policy" onClick={() => setMobileMenuOpen(false)}>
-                      {t("nav_privacy")}
-                    </Link>
-                    <Link href="/terms-conditions" onClick={() => setMobileMenuOpen(false)}>
-                      {t("nav_terms")}
-                    </Link>
-                  </div>
-                )}
-              </li>
-              <li>
-                <div
-                  onClick={() => toggleSubmenu("shop")}
-                  className="flex items-center justify-between py-2 border-b border-gray-100 cursor-pointer"
-                >
-                  <span>{t("nav_shop")}</span>
-                  <i
-                    className={`fa-solid fa-chevron-down text-xs transition ${activeSubmenu === "shop" ? "rotate-180 text-[#F00101]" : ""
-                      }`}
-                  ></i>
-                </div>
-                {activeSubmenu === "shop" && (
-                  <div className="pl-4 py-2 flex flex-col gap-2 text-xs text-gray-600 bg-gray-50 rounded-lg mt-1">
-                    <Link href="/shop" onClick={() => setMobileMenuOpen(false)}>
-                      {t("nav_our_shop")}
-                    </Link>
-                    <Link href="/cart" onClick={() => setMobileMenuOpen(false)}>
-                      {t("nav_cart")}
-                    </Link>
-                    <Link href="/checkout" onClick={() => setMobileMenuOpen(false)}>
-                      {t("nav_checkout")}
-                    </Link>
-                  </div>
-                )}
-              </li>
+
               <li>
                 <div
                   onClick={() => toggleSubmenu("blog")}

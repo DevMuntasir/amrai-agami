@@ -115,7 +115,7 @@ export default function RootLayout({
       "Global nonprofit charity organization committed to poverty alleviation, education, and healthcare.",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+1-305-587-3407",
+      telephone: "+880-1874303208",
       contactType: "customer service",
       email: "support@amraiagami.org",
       areaServed: "World",

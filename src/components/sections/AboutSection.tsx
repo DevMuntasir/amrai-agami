@@ -81,8 +81,8 @@ export const AboutSection: React.FC = () => {
                 </div>
                 <div>
                   <span className="block text-[11px] text-gray-500 font-medium">{t("have_questions")}</span>
-                  <a href="tel:+13055873407" className="text-sm font-bold text-[#002A8C] hover:text-[#F00101]">
-                    +1 (305) 587-3407
+                  <a href="tel:+8801874303208" className="text-sm font-bold text-[#002A8C] hover:text-[#F00101]">
+                    +880 1874303208
                   </a>
                 </div>
               </div>
