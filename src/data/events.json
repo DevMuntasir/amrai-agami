@@ -1,0 +1,53 @@
+[
+  {
+    "id": "1",
+    "slug": "annual-charity-fundraising-gala-2026",
+    "title": "Annual Charity Fundraising Gala & Benefit Night 2026",
+    "date": "18 OCT, 2026",
+    "time": "10:00 AM - 04:00 PM",
+    "location": "Grand Palace Hall, New York, USA",
+    "image": "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80",
+    "cost": "Free (Donations Welcome)",
+    "shortDescription": "Join international philanthropists, cultural leaders, and community heroes for an evening of impact.",
+    "fullDescription": "The Amrai Agami Annual Gala gathers supporters and community leaders from around the world to celebrate our milestones, raise critical funds for the upcoming year, and expand our humanitarian outreach. Enjoy dinner, guest performances, keynote talks, and live auctions.",
+    "organizer": {
+      "name": "Sarah Jenkins",
+      "phone": "+1 (555) 234-5678",
+      "email": "events@amraiagami.org"
+    }
+  },
+  {
+    "id": "2",
+    "slug": "tree-plantation-and-climate-drive",
+    "title": "Community Tree Plantation & Climate Awareness Walk",
+    "date": "24 NOV, 2026",
+    "time": "08:30 AM - 01:00 PM",
+    "location": "Central Green Park, London, UK",
+    "image": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80",
+    "cost": "Free",
+    "shortDescription": "Be a part of planting 10,000 native saplings to fight global warming and protect local biodiversity.",
+    "fullDescription": "Planting trees is one of the most effective ways to sequester carbon and restore natural ecosystems. Volunteers of all ages will plant trees, learn urban gardening techniques, and receive free saplings to take home.",
+    "organizer": {
+      "name": "David Ross",
+      "phone": "+44 20 7946 0912",
+      "email": "green@amraiagami.org"
+    }
+  },
+  {
+    "id": "3",
+    "slug": "free-health-and-dental-camp",
+    "title": "Free Community Health, Eye & Dental Screening Camp",
+    "date": "12 DEC, 2026",
+    "time": "09:00 AM - 05:00 PM",
+    "location": "Community Health Center, Chicago, USA",
+    "image": "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=800&q=80",
+    "cost": "Free",
+    "shortDescription": "Free medical consultations, diagnostic lab tests, prescription eyeglasses, and dental checkups.",
+    "fullDescription": "Our expert team of volunteer doctors, pediatricians, ophthalmologists, and dentists will provide free checkups, medication distribution, blood pressure and glucose screenings, and nutritional counseling for over 1,000 individuals.",
+    "organizer": {
+      "name": "Dr. Emily Carter",
+      "phone": "+1 (312) 555-0199",
+      "email": "health@amraiagami.org"
+    }
+  }
+]

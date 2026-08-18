@@ -1,0 +1,54 @@
+[
+  {
+    "id": "1",
+    "slug": "eco-friendly-organic-cotton-tshirt",
+    "name": "Amrai Agami Organic Cotton T-Shirt",
+    "image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80",
+    "price": 25.00,
+    "oldPrice": 35.00,
+    "rating": 5,
+    "reviewsCount": 38,
+    "category": "Apparel",
+    "description": "100% certified organic cotton tee. 100% of profit goes directly towards funding education kits for children.",
+    "inStock": true
+  },
+  {
+    "id": "2",
+    "slug": "stainless-steel-water-bottle",
+    "name": "Eco Insulated Water Bottle",
+    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=600&q=80",
+    "price": 18.00,
+    "oldPrice": 24.00,
+    "rating": 5,
+    "reviewsCount": 24,
+    "category": "Accessories",
+    "description": "BPA-free vacuum insulated stainless steel bottle. Keeps drinks cold for 24h and hot for 12h.",
+    "inStock": true
+  },
+  {
+    "id": "3",
+    "slug": "handcrafted-artisan-tote-bag",
+    "name": "Handmade Artisan Tote Bag",
+    "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80",
+    "price": 15.00,
+    "oldPrice": 20.00,
+    "rating": 4,
+    "reviewsCount": 19,
+    "category": "Bags",
+    "description": "Spacious and durable tote bag crafted by artisan women cooperatives supported by Amrai Agami.",
+    "inStock": true
+  },
+  {
+    "id": "4",
+    "slug": "charity-wristband-pack",
+    "name": "Hope & Charity Silicone Wristband Pack",
+    "image": "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=600&q=80",
+    "price": 8.00,
+    "oldPrice": 12.00,
+    "rating": 5,
+    "reviewsCount": 52,
+    "category": "Accessories",
+    "description": "Set of 3 engraved motivational silicone bands supporting global disaster relief initiatives.",
+    "inStock": true
+  }
+]

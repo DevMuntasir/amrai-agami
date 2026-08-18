@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1",
+    "slug": "how-small-donations-create-huge-impact",
+    "title": "How Small Monthly Donations Create Long-Term Impact",
+    "image": "https://images.unsplash.com/photo-1532629345422-7515f3d16bb9?auto=format&fit=crop&w=800&q=80",
+    "date": "15 Sep, 2026",
+    "author": "Eleanor Vance",
+    "authorImage": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+    "category": "Charity",
+    "tags": ["Donation", "Community", "Volunteering"],
+    "commentsCount": 8,
+    "shortDescription": "Discover how a micro-donation system ensures sustained food supply and schooling across rural villages.",
+    "fullContent": "Consistent monthly support empowers non-profit organizations to plan long-term developmental initiatives with certainty. When thousands of compassionate individuals pool modest sums together, the cumulative impact creates permanent educational institutions, water treatment facilities, and renewable energy grids."
+  },
+  {
+    "id": "2",
+    "slug": "empowering-women-through-vocational-skills",
+    "title": "Empowering Rural Women Through Vocational Training",
+    "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80",
+    "date": "20 Sep, 2026",
+    "author": "Mark Sterling",
+    "authorImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+    "category": "Empowerment",
+    "tags": ["Skills", "Empowerment", "Future"],
+    "commentsCount": 14,
+    "shortDescription": "Tailoring, handicraft, and digital literacy programs provide sustainable income for hundreds of mothers.",
+    "fullContent": "Financial independence transforms lives and uplifts entire generations. Our vocational workshops offer hands-on training in garment making, organic farming, artisan craft production, and basic digital commerce."
+  },
+  {
+    "id": "3",
+    "slug": "stories-of-resilience-clean-water-project",
+    "title": "Stories of Hope: Bringing Fresh Water to 50 Villages",
+    "image": "https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=800&q=80",
+    "date": "28 Sep, 2026",
+    "author": "Sophie Patel",
+    "authorImage": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80",
+    "category": "Clean Water",
+    "tags": ["Health", "Clean Water", "Sustainability"],
+    "commentsCount": 19,
+    "shortDescription": "A close look at how clean water wells transformed sanitation, school attendance, and life expectancy.",
+    "fullContent": "Prior to the clean water wells project, women and young girls walked an average of 4 miles every single day simply to fetch turbid, untreated water. Today, clean drinkable water flows in the center of their villages."
+  }
+]

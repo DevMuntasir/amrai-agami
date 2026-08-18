@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #002A8C;
+  --color-brand-blue-hover: #003ab8;
+  --color-brand-blue-dark: #001a57;
+  --color-brand-blue-50: #eff4ff;
+  --color-brand-blue-100: #dbe8fe;
+  --color-brand-red: #F00101;
+  --color-brand-red-hover: #d30101;
+  --color-brand-red-50: #fef2f2;
+  --color-brand-red-100: #fee2e2;
+}
+
+:root {
+  --base-color: #002A8C;
+  --accent-color: #F00101;
+}
+
+/* Swiper custom styles */
+.swiper-pagination-bullet-active {
+  background: #F00101 !important;
+}
+
+.mega-menu {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Smooth modal transitions */
+.modal-backdrop-custom {
+  background-color: rgba(0, 42, 140, 0.8);
+  backdrop-filter: blur(4px);
+}

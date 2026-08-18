@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "question": "How do you ensure my donation reaches the intended cause?",
+    "answer": "We maintain 100% financial transparency with annual third-party audits, real-time photographic project updates, and direct delivery verification for every funded campaign.",
+    "category": "Donations"
+  },
+  {
+    "id": "2",
+    "question": "Can I make a recurring monthly or annual donation?",
+    "answer": "Yes! You can choose between one-time, monthly, or yearly recurring contributions during checkout, and manage or modify your subscription at any time.",
+    "category": "Donations"
+  },
+  {
+    "id": "3",
+    "question": "How can I register as a volunteer?",
+    "answer": "Simply navigate to our 'Become a Volunteer' page, fill in your background, skills, and availability, and our community manager will connect with you within 48 hours.",
+    "category": "Volunteering"
+  },
+  {
+    "id": "4",
+    "question": "Are donations tax-deductible?",
+    "answer": "Yes, Amrai Agami is a registered 501(c)(3) non-profit organization. All donations made through our portal are tax-deductible, and instant tax receipts are emailed immediately.",
+    "category": "Legal & Tax"
+  },
+  {
+    "id": "5",
+    "question": "What payment methods are supported?",
+    "answer": "We accept all major credit/debit cards (Visa, MasterCard, Amex), PayPal, Stripe, Apple Pay, Google Pay, and direct bank wire transfers.",
+    "category": "Payments"
+  }
+]
