@@ -60,7 +60,7 @@ export default async function CauseDetailsPage({ params }: PageProps) {
 
       <PageBanner
         title={cause.title}
-        subtitle={`Category: ${cause.category} | Goal: $${cause.goal.toLocaleString()}`}
+        subtitle={`Category: ${cause.category} | Goal: ৳${cause.goal.toLocaleString()}`}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Causes", href: "/causes" },
@@ -101,13 +101,13 @@ export default async function CauseDetailsPage({ params }: PageProps) {
                   <div>
                     <span className="text-xs text-gray-500 block">Raised</span>
                     <span className="text-lg font-black text-[#002A8C]">
-                      ${cause.raised.toLocaleString()}
+                      ৳{cause.raised.toLocaleString()}
                     </span>
                   </div>
                   <div>
                     <span className="text-xs text-gray-500 block">Goal</span>
                     <span className="text-lg font-black text-gray-900">
-                      ${cause.goal.toLocaleString()}
+                      ৳{cause.goal.toLocaleString()}
                     </span>
                   </div>
                   <div>

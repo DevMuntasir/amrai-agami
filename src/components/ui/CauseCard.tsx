@@ -54,13 +54,13 @@ export const CauseCard: React.FC<CauseCardProps> = ({ cause }) => {
 
           {/* Goals and Raised */}
           <div className="flex items-center justify-between pt-3 border-t border-gray-100 text-xs">
-            <div>
-              <span className="text-gray-400 block text-[10px]">{t("raised")}</span>
-              <span className="font-extrabold text-[#002A8C]">${cause.raised.toLocaleString()}</span>
+            <div className="text-left">
+              <span className="text-[11px] text-gray-500 block">Raised</span>
+              <span className="font-extrabold text-[#002A8C]">৳{cause.raised.toLocaleString()}</span>
             </div>
             <div className="text-right">
-              <span className="text-gray-400 block text-[10px]">{t("goal")}</span>
-              <span className="font-extrabold text-[#F00101]">${cause.goal.toLocaleString()}</span>
+              <span className="text-[11px] text-gray-500 block">Goal</span>
+              <span className="font-extrabold text-[#F00101]">৳{cause.goal.toLocaleString()}</span>
             </div>
           </div>
 

@@ -5,7 +5,7 @@ import React from "react";
 export const CounterSection: React.FC = () => {
   const counters = [
     { number: "25,000+", label: "Generous Donors", icon: "fa-solid fa-hand-holding-dollar" },
-    { number: "$12.8M", label: "Funds Distributed", icon: "fa-solid fa-coins" },
+    { number: "৳১২.৮M+", label: "Funds Distributed", icon: "fa-solid fa-coins" },
     { number: "180+", label: "Completed Projects", icon: "fa-solid fa-school" },
     { number: "5,400+", label: "Active Volunteers", icon: "fa-solid fa-users" },
   ];

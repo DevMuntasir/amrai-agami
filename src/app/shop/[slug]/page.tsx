@@ -63,7 +63,7 @@ export default async function ProductDetailsPage({ params }: PageProps) {
 
       <PageBanner
         title={product.name}
-        subtitle={`Category: ${product.category} | $${product.price.toFixed(2)}`}
+        subtitle={`Category: ${product.category} | ৳${product.price.toLocaleString()}`}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Shop", href: "/shop" },

@@ -53,10 +53,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         </div>
         <div className="flex items-center justify-between pt-4 border-t border-gray-100">
           <div className="price flex items-baseline gap-2">
-            <span className="text-lg font-bold text-slate-900">${product.price.toFixed(2)}</span>
+            <span className="text-lg font-bold text-slate-900">৳{product.price.toLocaleString()}</span>
             {product.oldPrice && (
               <span className="text-xs text-gray-400 line-through">
-                ${product.oldPrice.toFixed(2)}
+                ৳{product.oldPrice.toLocaleString()}
               </span>
             )}
           </div>

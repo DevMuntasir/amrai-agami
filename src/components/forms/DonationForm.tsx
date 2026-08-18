@@ -6,13 +6,13 @@ interface DonationFormProps {
   defaultCause?: string;
 }
 
-const PRESET_AMOUNTS = [10, 25, 50, 100, 250, 500];
+const PRESET_AMOUNTS = [500, 1000, 2500, 5000, 10000, 25000];
 
 export const DonationForm: React.FC<DonationFormProps> = ({ defaultCause }) => {
-  const [amount, setAmount] = useState<number>(50);
+  const [amount, setAmount] = useState<number>(1000);
   const [customAmount, setCustomAmount] = useState<string>("");
   const [frequency, setFrequency] = useState<"one-time" | "monthly">("one-time");
-  const [paymentMethod, setPaymentMethod] = useState<"card" | "paypal" | "bank">("card");
+  const [paymentMethod, setPaymentMethod] = useState<"bkash" | "nagad" | "rocket" | "card">("bkash");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -49,11 +49,12 @@ export const DonationForm: React.FC<DonationFormProps> = ({ defaultCause }) => {
         </div>
         <h3 className="text-2xl font-bold text-gray-900 mb-2">Thank You for Your Generosity!</h3>
         <p className="text-gray-600 text-sm mb-6 leading-relaxed">
-          Your <span className="font-bold text-[#002A8C]">${amount}</span> {frequency} donation to Amrai Agami will bring immediate hope, shelter, and education to vulnerable communities.
+          Your <span className="font-bold text-[#002A8C]">৳{amount.toLocaleString()}</span> {frequency} donation via {paymentMethod.toUpperCase()} to Amrai Agami will bring immediate hope, shelter, and education to vulnerable communities.
         </p>
         <div className="p-4 bg-gray-50 rounded-2xl border border-gray-100 text-left text-xs space-y-1.5 mb-6">
           <p className="text-gray-500">Transaction ID: <span className="font-mono font-bold text-gray-800">AA-{Math.floor(100000 + Math.random() * 900000)}</span></p>
           <p className="text-gray-500">Donor Name: <span className="font-bold text-gray-800">{formData.firstName} {formData.lastName}</span></p>
+          <p className="text-gray-500">Payment Gateway: <span className="font-bold text-gray-800 uppercase">{paymentMethod}</span></p>
           <p className="text-gray-500">Email: <span className="font-bold text-gray-800">{formData.email}</span></p>
         </div>
         <button
@@ -99,7 +100,7 @@ export const DonationForm: React.FC<DonationFormProps> = ({ defaultCause }) => {
       {/* Preset Amounts */}
       <div className="mb-6">
         <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-3">
-          Select Donation Amount
+          Select Donation Amount (BDT ৳)
         </label>
         <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 mb-4">
           {PRESET_AMOUNTS.map((val) => (
@@ -113,21 +114,21 @@ export const DonationForm: React.FC<DonationFormProps> = ({ defaultCause }) => {
                   : "bg-gray-50 hover:bg-gray-100 text-gray-800 border-gray-200"
               }`}
             >
-              ${val}
+              ৳{val.toLocaleString()}
             </button>
           ))}
         </div>
 
         {/* Custom Amount Input */}
         <div className="relative">
-          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-bold">$</span>
+          <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 font-bold text-base">৳</span>
           <input
             type="number"
-            min="1"
-            placeholder="Or enter custom amount in USD"
+            min="10"
+            placeholder="Or enter custom amount in BDT (টাকা)"
             value={customAmount}
             onChange={handleCustomAmountChange}
-            className="w-full pl-8 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[#002A8C] text-sm font-bold text-gray-800"
+            className="w-full pl-9 pr-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[#002A8C] text-sm font-bold text-gray-800"
           />
         </div>
       </div>
@@ -137,39 +138,50 @@ export const DonationForm: React.FC<DonationFormProps> = ({ defaultCause }) => {
         <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-3">
           Payment Method
         </label>
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <button
+            type="button"
+            onClick={() => setPaymentMethod("bkash")}
+            className={`py-3 px-2 rounded-xl text-xs font-bold border flex items-center justify-center gap-2 transition ${
+              paymentMethod === "bkash"
+                ? "bg-pink-50 border-pink-500 text-pink-700 shadow-sm"
+                : "bg-gray-50 border-gray-200 text-gray-600"
+            }`}
+          >
+            <span className="font-extrabold text-pink-600">bKash</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setPaymentMethod("nagad")}
+            className={`py-3 px-2 rounded-xl text-xs font-bold border flex items-center justify-center gap-2 transition ${
+              paymentMethod === "nagad"
+                ? "bg-orange-50 border-orange-500 text-orange-700 shadow-sm"
+                : "bg-gray-50 border-gray-200 text-gray-600"
+            }`}
+          >
+            <span className="font-extrabold text-orange-600">Nagad</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setPaymentMethod("rocket")}
+            className={`py-3 px-2 rounded-xl text-xs font-bold border flex items-center justify-center gap-2 transition ${
+              paymentMethod === "rocket"
+                ? "bg-purple-50 border-purple-500 text-purple-700 shadow-sm"
+                : "bg-gray-50 border-gray-200 text-gray-600"
+            }`}
+          >
+            <span className="font-extrabold text-purple-600">Rocket</span>
+          </button>
           <button
             type="button"
             onClick={() => setPaymentMethod("card")}
             className={`py-3 px-2 rounded-xl text-xs font-bold border flex items-center justify-center gap-2 transition ${
               paymentMethod === "card"
-                ? "bg-blue-50 border-[#002A8C] text-[#002A8C]"
+                ? "bg-blue-50 border-[#002A8C] text-[#002A8C] shadow-sm"
                 : "bg-gray-50 border-gray-200 text-gray-600"
             }`}
           >
-            <i className="fa-regular fa-credit-card"></i> Credit Card
-          </button>
-          <button
-            type="button"
-            onClick={() => setPaymentMethod("paypal")}
-            className={`py-3 px-2 rounded-xl text-xs font-bold border flex items-center justify-center gap-2 transition ${
-              paymentMethod === "paypal"
-                ? "bg-blue-50 border-[#002A8C] text-[#002A8C]"
-                : "bg-gray-50 border-gray-200 text-gray-600"
-            }`}
-          >
-            <i className="fa-brands fa-paypal"></i> PayPal
-          </button>
-          <button
-            type="button"
-            onClick={() => setPaymentMethod("bank")}
-            className={`py-3 px-2 rounded-xl text-xs font-bold border flex items-center justify-center gap-2 transition ${
-              paymentMethod === "bank"
-                ? "bg-blue-50 border-[#002A8C] text-[#002A8C]"
-                : "bg-gray-50 border-gray-200 text-gray-600"
-            }`}
-          >
-            <i className="fa-solid fa-building-columns"></i> Bank Transfer
+            <i className="fa-regular fa-credit-card"></i> Card / Bank
           </button>
         </div>
       </div>
@@ -217,7 +229,7 @@ export const DonationForm: React.FC<DonationFormProps> = ({ defaultCause }) => {
             <label className="block text-xs font-bold text-gray-700 mb-1">Phone Number</label>
             <input
               type="tel"
-              placeholder="+1 (555) 000-0000"
+              placeholder="+880 1874303208"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[#002A8C] text-xs text-gray-800"
@@ -232,7 +244,7 @@ export const DonationForm: React.FC<DonationFormProps> = ({ defaultCause }) => {
         className="w-full py-4 bg-[#F00101] hover:bg-[#d00000] text-white font-extrabold text-sm rounded-2xl shadow-xl transition flex items-center justify-center gap-2 transform hover:-translate-y-0.5"
       >
         <i className="fa-solid fa-lock text-xs"></i>
-        <span>Complete Secure Donation of ${amount}</span>
+        <span>Complete Secure Donation of ৳{amount.toLocaleString()}</span>
       </button>
 
       <p className="text-center text-gray-400 text-[11px] mt-4 flex items-center justify-center gap-1.5">

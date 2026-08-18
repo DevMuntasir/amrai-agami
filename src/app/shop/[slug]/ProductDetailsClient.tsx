@@ -52,12 +52,12 @@ export const ProductDetailsClient: React.FC<{ product: Product }> = ({ product }
             </div>
 
             <div className="flex items-baseline gap-3 mb-6">
-              <span className="text-3xl font-black text-slate-900">
-                ${product.price.toFixed(2)}
+              <span className="text-3xl font-extrabold text-[#002A8C]">
+                ৳{product.price.toLocaleString()}
               </span>
               {product.oldPrice && (
-                <span className="text-lg text-gray-400 line-through">
-                  ${product.oldPrice.toFixed(2)}
+                <span className="text-lg text-gray-400 line-through font-semibold">
+                  ৳{product.oldPrice.toLocaleString()}
                 </span>
               )}
             </div>

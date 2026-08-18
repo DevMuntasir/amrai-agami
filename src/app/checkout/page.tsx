@@ -147,7 +147,7 @@ export default function CheckoutPage() {
                           <span className="text-gray-500">Qty: {item.quantity}</span>
                         </div>
                         <span className="font-bold text-gray-900">
-                          ${(item.product.price * item.quantity).toFixed(2)}
+                          ৳{(item.product.price * item.quantity).toLocaleString()}
                         </span>
                       </div>
                     ))}
@@ -156,7 +156,7 @@ export default function CheckoutPage() {
                   <div className="space-y-2 pt-3 border-t border-gray-200 text-sm mb-6">
                     <div className="flex justify-between text-gray-600">
                       <span>Subtotal</span>
-                      <span className="font-semibold text-gray-900">${subtotal.toFixed(2)}</span>
+                      <span className="font-semibold text-gray-900">৳{subtotal.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between text-gray-600">
                       <span>Shipping</span>
@@ -164,7 +164,7 @@ export default function CheckoutPage() {
                     </div>
                     <div className="pt-2 border-t border-gray-200 flex justify-between text-base font-black text-gray-900">
                       <span>Total Amount</span>
-                      <span>${subtotal.toFixed(2)}</span>
+                      <span>৳{subtotal.toLocaleString()}</span>
                     </div>
                   </div>
 

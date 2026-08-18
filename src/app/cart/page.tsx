@@ -76,7 +76,7 @@ export default function CartPage() {
                     </div>
 
                     <div className="col-span-2 text-center text-sm font-semibold text-gray-700">
-                      ${item.product.price.toFixed(2)}
+                      ৳{item.product.price.toLocaleString()}
                     </div>
 
                     <div className="col-span-2 flex items-center justify-center">
@@ -98,7 +98,7 @@ export default function CartPage() {
                     </div>
 
                     <div className="col-span-2 text-right text-sm font-bold text-slate-900">
-                      ${(item.product.price * item.quantity).toFixed(2)}
+                      ৳{(item.product.price * item.quantity).toLocaleString()}
                     </div>
                   </div>
                 ))}
@@ -128,7 +128,7 @@ export default function CartPage() {
                   <div className="space-y-3 text-sm mb-6">
                     <div className="flex justify-between text-gray-600">
                       <span>Subtotal</span>
-                      <span className="font-semibold text-gray-900">${subtotal.toFixed(2)}</span>
+                      <span className="font-semibold text-gray-900">৳{subtotal.toLocaleString()}</span>
                     </div>
                     <div className="flex justify-between text-gray-600">
                       <span>Charity Donation Impact</span>
@@ -140,7 +140,7 @@ export default function CartPage() {
                     </div>
                     <div className="pt-3 border-t border-gray-200 flex justify-between text-base font-extrabold text-gray-900">
                       <span>Total</span>
-                      <span>${subtotal.toFixed(2)}</span>
+                      <span>৳{subtotal.toLocaleString()}</span>
                     </div>
                   </div>
 
