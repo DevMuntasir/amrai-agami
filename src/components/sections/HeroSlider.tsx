@@ -45,7 +45,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({ slides = defaultGlobalSe
             </span>
 
             {/* Title */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-black  mb-6 tracking-tight text-white">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-black  mb-6 leading-[1.3] text-white">
               {slides[activeSlide].title}
             </h1>
 
