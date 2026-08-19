@@ -10,6 +10,8 @@ import { AppShell } from "@/components/layout/AppShell";
 import { CartProvider } from "@/context/CartContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 
+export const revalidate = 60;
+
 const workSans = Work_Sans({
   subsets: ["latin"],
   variable: "--font-work-sans",
