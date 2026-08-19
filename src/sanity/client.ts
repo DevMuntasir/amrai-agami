@@ -1,5 +1,5 @@
 import { createClient } from "next-sanity";
-import imageUrlBuilder from "@sanity/image-url";
+import { createImageUrlBuilder } from "@sanity/image-url";
 import { projectId, dataset, apiVersion, token, isSanityConfigured } from "./env";
 
 export const sanityClient = isSanityConfigured
@@ -12,7 +12,7 @@ export const sanityClient = isSanityConfigured
     })
   : null;
 
-const builder = isSanityConfigured && sanityClient ? imageUrlBuilder(sanityClient) : null;
+const builder = isSanityConfigured && sanityClient ? createImageUrlBuilder(sanityClient) : null;
 
 export function urlForImage(source: any) {
   if (!builder || !source) return "";

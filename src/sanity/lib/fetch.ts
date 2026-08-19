@@ -230,20 +230,38 @@ export async function getGlobalSectionContent(): Promise<GlobalSectionContent> {
       const data = await sanityClient.fetch<GlobalSectionContent>(globalSectionContentQuery);
       if (data) {
         return {
-          ...defaultGlobalSectionContent,
-          ...data,
+          heroSlides:
+            data.heroSlides?.length
+              ? data.heroSlides
+              : defaultGlobalSectionContent.heroSlides,
+          homeTwoHero: {
+            ...defaultGlobalSectionContent.homeTwoHero,
+            ...(data.homeTwoHero ?? {}),
+          },
+          homeThreeHero: {
+            ...defaultGlobalSectionContent.homeThreeHero,
+            ...(data.homeThreeHero ?? {}),
+          },
           aboutSection: {
             ...defaultGlobalSectionContent.aboutSection,
-            ...data.aboutSection,
+            ...(data.aboutSection ?? {}),
             featureCards:
               data.aboutSection?.featureCards?.length
                 ? data.aboutSection.featureCards
                 : defaultGlobalSectionContent.aboutSection.featureCards,
           },
-          heroSlides:
-            data.heroSlides?.length
-              ? data.heroSlides
-              : defaultGlobalSectionContent.heroSlides,
+          causesSection: {
+            ...defaultGlobalSectionContent.causesSection,
+            ...(data.causesSection ?? {}),
+          },
+          eventsSection: {
+            ...defaultGlobalSectionContent.eventsSection,
+            ...(data.eventsSection ?? {}),
+          },
+          blogSection: {
+            ...defaultGlobalSectionContent.blogSection,
+            ...(data.blogSection ?? {}),
+          },
           counterSection: {
             items:
               data.counterSection?.items?.length
@@ -252,11 +270,19 @@ export async function getGlobalSectionContent(): Promise<GlobalSectionContent> {
           },
           volunteerSection: {
             ...defaultGlobalSectionContent.volunteerSection,
-            ...data.volunteerSection,
+            ...(data.volunteerSection ?? {}),
             reasons:
               data.volunteerSection?.reasons?.length
                 ? data.volunteerSection.reasons
                 : defaultGlobalSectionContent.volunteerSection.reasons,
+          },
+          testimonialSection: {
+            ...defaultGlobalSectionContent.testimonialSection,
+            ...(data.testimonialSection ?? {}),
+          },
+          faqSectionHeader: {
+            ...defaultGlobalSectionContent.faqSectionHeader,
+            ...(data.faqSectionHeader ?? {}),
           },
           sponsorSection: {
             logos:
@@ -280,27 +306,27 @@ export async function getPageContent(pageKey: string): Promise<PageContent | nul
       const data = await sanityClient.fetch<PageContent>(pageContentByKeyQuery, { pageKey });
       if (data) {
         return {
-          ...defaultPageContent[pageKey],
-          ...data,
+          ...(defaultPageContent[pageKey] ?? {}),
+          ...(data ?? {}),
           banner: {
             ...defaultPageContent[pageKey]?.banner,
-            ...data.banner,
+            ...(data.banner ?? {}),
           },
           teamSection: {
             ...defaultPageContent[pageKey]?.teamSection,
-            ...data.teamSection,
+            ...(data.teamSection ?? {}),
           },
           donateSection: {
             ...defaultPageContent[pageKey]?.donateSection,
-            ...data.donateSection,
+            ...(data.donateSection ?? {}),
           },
           contactSection: {
             ...defaultPageContent[pageKey]?.contactSection,
-            ...data.contactSection,
+            ...(data.contactSection ?? {}),
           },
           volunteerFormSection: {
             ...defaultPageContent[pageKey]?.volunteerFormSection,
-            ...data.volunteerFormSection,
+            ...(data.volunteerFormSection ?? {}),
           },
         };
       }
