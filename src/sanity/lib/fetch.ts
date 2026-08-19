@@ -14,7 +14,10 @@ import {
   testimonialsQuery,
   faqsQuery,
   siteSettingsQuery,
+  globalSectionContentQuery,
+  pageContentByKeyQuery,
 } from "../queries";
+import { defaultGlobalSectionContent, defaultPageContent } from "./defaultContent";
 
 // Local Data Fallbacks
 import localCauses from "@/data/causes.json";
@@ -24,7 +27,17 @@ import localTeam from "@/data/team.json";
 import localProducts from "@/data/products.json";
 import localTestimonials from "@/data/testimonials.json";
 import localFaqs from "@/data/faqs.json";
-import { Cause, CharityEvent, BlogPost, TeamMember, Product, Testimonial, FAQ } from "@/types";
+import {
+  Cause,
+  CharityEvent,
+  BlogPost,
+  TeamMember,
+  Product,
+  Testimonial,
+  FAQ,
+  GlobalSectionContent,
+  PageContent,
+} from "@/types";
 
 /**
  * Fetch Causes (Sanity -> Fallback to local data)
@@ -209,4 +222,92 @@ export async function getSiteSettings() {
     email: "support@amraiagami.org",
     phone: "+880 1874303208",
   };
+}
+
+export async function getGlobalSectionContent(): Promise<GlobalSectionContent> {
+  if (isSanityConfigured && sanityClient) {
+    try {
+      const data = await sanityClient.fetch<GlobalSectionContent>(globalSectionContentQuery);
+      if (data) {
+        return {
+          ...defaultGlobalSectionContent,
+          ...data,
+          aboutSection: {
+            ...defaultGlobalSectionContent.aboutSection,
+            ...data.aboutSection,
+            featureCards:
+              data.aboutSection?.featureCards?.length
+                ? data.aboutSection.featureCards
+                : defaultGlobalSectionContent.aboutSection.featureCards,
+          },
+          heroSlides:
+            data.heroSlides?.length
+              ? data.heroSlides
+              : defaultGlobalSectionContent.heroSlides,
+          counterSection: {
+            items:
+              data.counterSection?.items?.length
+                ? data.counterSection.items
+                : defaultGlobalSectionContent.counterSection.items,
+          },
+          volunteerSection: {
+            ...defaultGlobalSectionContent.volunteerSection,
+            ...data.volunteerSection,
+            reasons:
+              data.volunteerSection?.reasons?.length
+                ? data.volunteerSection.reasons
+                : defaultGlobalSectionContent.volunteerSection.reasons,
+          },
+          sponsorSection: {
+            logos:
+              data.sponsorSection?.logos?.length
+                ? data.sponsorSection.logos
+                : defaultGlobalSectionContent.sponsorSection.logos,
+          },
+        };
+      }
+    } catch (err) {
+      console.warn("Sanity fetch error for global section content, using fallback:", err);
+    }
+  }
+
+  return defaultGlobalSectionContent;
+}
+
+export async function getPageContent(pageKey: string): Promise<PageContent | null> {
+  if (isSanityConfigured && sanityClient) {
+    try {
+      const data = await sanityClient.fetch<PageContent>(pageContentByKeyQuery, { pageKey });
+      if (data) {
+        return {
+          ...defaultPageContent[pageKey],
+          ...data,
+          banner: {
+            ...defaultPageContent[pageKey]?.banner,
+            ...data.banner,
+          },
+          teamSection: {
+            ...defaultPageContent[pageKey]?.teamSection,
+            ...data.teamSection,
+          },
+          donateSection: {
+            ...defaultPageContent[pageKey]?.donateSection,
+            ...data.donateSection,
+          },
+          contactSection: {
+            ...defaultPageContent[pageKey]?.contactSection,
+            ...data.contactSection,
+          },
+          volunteerFormSection: {
+            ...defaultPageContent[pageKey]?.volunteerFormSection,
+            ...data.volunteerFormSection,
+          },
+        };
+      }
+    } catch (err) {
+      console.warn(`Sanity fetch error for page content "${pageKey}", using fallback:`, err);
+    }
+  }
+
+  return defaultPageContent[pageKey] || null;
 }

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { PageBanner } from "@/components/layout/PageBanner";
 import { CauseCard } from "@/components/ui/CauseCard";
-import { getCauses } from "@/sanity/lib/fetch";
+import { getCauses, getPageContent } from "@/sanity/lib/fetch";
 
 export const metadata: Metadata = {
   title: "Our Causes - Support Humanitarian Relief Campaigns",
@@ -10,13 +10,14 @@ export const metadata: Metadata = {
 };
 
 export default async function CausesPage() {
-  const causes = await getCauses();
+  const [causes, pageContent] = await Promise.all([getCauses(), getPageContent("causes")]);
 
   return (
     <>
       <PageBanner
-        title="Our Urgent Causes"
-        subtitle="Every contribution brings vital resources, hope, and real change to families in urgent need."
+        title={pageContent?.banner?.title || "Our Urgent Causes"}
+        subtitle={pageContent?.banner?.subtitle}
+        backgroundImage={pageContent?.banner?.backgroundImage}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Causes" },

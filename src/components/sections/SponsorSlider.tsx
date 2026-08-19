@@ -4,16 +4,15 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
+import { SponsorLogo } from "@/types";
+import { defaultGlobalSectionContent } from "@/sanity/lib/defaultContent";
 
-export const SponsorSlider: React.FC = () => {
-  const sponsors = [
-    "/assets/images/sponsor/one.png",
-    "/assets/images/sponsor/two.png",
-    "/assets/images/sponsor/three.png",
-    "/assets/images/sponsor/four.png",
-    "/assets/images/sponsor/five.png",
-    "/assets/images/sponsor/six.png",
-  ];
+interface SponsorSliderProps {
+  logos?: SponsorLogo[];
+}
+
+export const SponsorSlider: React.FC<SponsorSliderProps> = ({ logos }) => {
+  const sponsors = logos || defaultGlobalSectionContent.sponsorSection.logos;
 
   return (
     <section className="py-12 bg-white border-y border-gray-100 overflow-hidden">
@@ -31,14 +30,24 @@ export const SponsorSlider: React.FC = () => {
           }}
           className="items-center"
         >
-          {sponsors.map((src, index) => (
+          {sponsors.map((logo, index) => (
             <SwiperSlide key={index} className="flex items-center justify-center">
               <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition duration-300 flex items-center justify-center p-4">
-                <img
-                  src={src}
-                  alt={`Sponsor ${index + 1}`}
-                  className="max-h-12 w-auto object-contain"
-                />
+                {logo.url ? (
+                  <a href={logo.url} target="_blank" rel="noreferrer">
+                    <img
+                      src={logo.image}
+                      alt={logo.alt || `Sponsor ${index + 1}`}
+                      className="max-h-12 w-auto object-contain"
+                    />
+                  </a>
+                ) : (
+                  <img
+                    src={logo.image}
+                    alt={logo.alt || `Sponsor ${index + 1}`}
+                    className="max-h-12 w-auto object-contain"
+                  />
+                )}
               </div>
             </SwiperSlide>
           ))}

@@ -3,19 +3,25 @@ import Link from "next/link";
 import { BlogPost } from "@/types";
 import { BlogCard } from "@/components/ui/BlogCard";
 import blogData from "@/data/blog.json";
+import { defaultGlobalSectionContent } from "@/sanity/lib/defaultContent";
 
 interface BlogSectionProps {
   limit?: number;
   title?: string;
   subtitle?: string;
+  viewAllLabel?: string;
+  items?: BlogPost[];
 }
 
 export const BlogSection: React.FC<BlogSectionProps> = ({
   limit,
-  title = "Insights, Stories & Campaign Updates",
-  subtitle = "Our Latest News",
+  title = defaultGlobalSectionContent.blogSection.title,
+  subtitle = defaultGlobalSectionContent.blogSection.badge,
+  viewAllLabel = defaultGlobalSectionContent.blogSection.viewAllLabel,
+  items,
 }) => {
-  const displayedBlogs = limit ? blogData.slice(0, limit) : blogData;
+  const sourceItems = items || (blogData as BlogPost[]);
+  const displayedBlogs = limit ? sourceItems.slice(0, limit) : sourceItems;
 
   return (
     <section className="py-20 md:py-28 bg-gray-50/70">
@@ -33,7 +39,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
             href="/blog"
             className="inline-flex items-center gap-2 text-xs font-bold text-slate-900 hover:text-amber-600 uppercase tracking-wider"
           >
-            <span>View All Stories</span>
+            <span>{viewAllLabel}</span>
             <i className="fa-solid fa-arrow-right"></i>
           </Link>
         </div>

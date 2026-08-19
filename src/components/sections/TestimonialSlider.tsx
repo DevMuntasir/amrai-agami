@@ -8,17 +8,30 @@ import "swiper/css/pagination";
 import { Testimonial } from "@/types";
 import { TestimonialCard } from "@/components/ui/TestimonialCard";
 import testimonialsData from "@/data/testimonials.json";
+import { defaultGlobalSectionContent } from "@/sanity/lib/defaultContent";
 
-export const TestimonialSlider: React.FC = () => {
+interface TestimonialSliderProps {
+  items?: Testimonial[];
+  badge?: string;
+  title?: string;
+}
+
+export const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
+  items,
+  badge = defaultGlobalSectionContent.testimonialSection.badge,
+  title = defaultGlobalSectionContent.testimonialSection.title,
+}) => {
+  const sourceItems = items || (testimonialsData as Testimonial[]);
+
   return (
     <section className="py-20 md:py-28 bg-white overflow-hidden">
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-xs md:text-sm font-extrabold text-amber-600 uppercase tracking-widest bg-amber-50 px-4 py-1.5 rounded-full border border-amber-100 mb-3 inline-block">
-            What People Say
+            {badge}
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
-            Voices of Donors & Volunteers
+            {title}
           </h2>
         </div>
 
@@ -34,7 +47,7 @@ export const TestimonialSlider: React.FC = () => {
           }}
           className="pb-12"
         >
-          {testimonialsData.map((item) => (
+          {sourceItems.map((item) => (
             <SwiperSlide key={item.id} className="h-auto">
               <TestimonialCard testimonial={item as Testimonial} />
             </SwiperSlide>

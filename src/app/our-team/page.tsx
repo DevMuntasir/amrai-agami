@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { PageBanner } from "@/components/layout/PageBanner";
 import { TeamCard } from "@/components/ui/TeamCard";
-import { getTeam } from "@/sanity/lib/fetch";
+import { getPageContent, getTeam } from "@/sanity/lib/fetch";
 
 export const metadata: Metadata = {
   title: "Our Team - Dedicated Humanitarian Leaders",
@@ -10,13 +10,14 @@ export const metadata: Metadata = {
 };
 
 export default async function OurTeamPage() {
-  const team = await getTeam();
+  const [team, pageContent] = await Promise.all([getTeam(), getPageContent("our-team")]);
 
   return (
     <>
       <PageBanner
-        title="Meet Our Dedicated Team"
-        subtitle="The compassionate leaders, healthcare workers, and coordinators driving our global initiatives."
+        title={pageContent?.banner?.title || "Meet Our Dedicated Team"}
+        subtitle={pageContent?.banner?.subtitle}
+        backgroundImage={pageContent?.banner?.backgroundImage}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Our Team" },

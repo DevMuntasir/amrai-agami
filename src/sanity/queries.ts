@@ -219,3 +219,106 @@ export const siteSettingsQuery = groq`
     }
   }
 `;
+
+export const globalSectionContentQuery = groq`
+  *[_type == "globalSectionContent"][0] {
+    heroSlides[]{
+      subtitle,
+      title,
+      description,
+      "backgroundImage": backgroundImage.asset->url,
+      videoUrl,
+      primaryButtonLabel,
+      primaryButtonHref,
+      secondaryButtonLabel
+    },
+    homeTwoHero{
+      badge,
+      title,
+      highlightedText,
+      description,
+      "backgroundImage": backgroundImage.asset->url,
+      "sideImage": sideImage.asset->url,
+      primaryButtonLabel,
+      primaryButtonHref,
+      secondaryButtonLabel,
+      secondaryButtonHref
+    },
+    homeThreeHero{
+      badge,
+      title,
+      highlightedText,
+      description,
+      "backgroundImage": backgroundImage.asset->url,
+      primaryButtonLabel,
+      primaryButtonHref,
+      secondaryButtonLabel,
+      secondaryButtonHref
+    },
+    aboutSection{
+      badge,
+      title,
+      description,
+      "primaryImage": primaryImage.asset->url,
+      "secondaryImage": secondaryImage.asset->url,
+      experienceYears,
+      experienceLabel,
+      featureCards[]{
+        title,
+        description,
+        icon,
+        accent
+      },
+      ctaLabel,
+      ctaHref,
+      phoneLabel,
+      phoneNumber
+    },
+    causesSection,
+    eventsSection,
+    blogSection,
+    counterSection{
+      items[]{
+        number,
+        label,
+        icon
+      }
+    },
+    volunteerSection{
+      badge,
+      title,
+      description,
+      "backgroundImage": backgroundImage.asset->url,
+      primaryButtonLabel,
+      primaryButtonHref,
+      secondaryButtonLabel,
+      secondaryButtonHref,
+      reasonsTitle,
+      reasons
+    },
+    testimonialSection,
+    faqSectionHeader,
+    sponsorSection{
+      logos[]{
+        "image": image.asset->url,
+        alt,
+        url
+      }
+    }
+  }
+`;
+
+export const pageContentByKeyQuery = groq`
+  *[_type == "pageContent" && pageKey == $pageKey][0] {
+    pageKey,
+    banner{
+      title,
+      subtitle,
+      "backgroundImage": backgroundImage.asset->url
+    },
+    teamSection,
+    donateSection,
+    contactSection,
+    volunteerFormSection
+  }
+`;

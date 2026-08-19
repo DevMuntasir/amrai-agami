@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { PageBanner } from "@/components/layout/PageBanner";
 import { EventCard } from "@/components/ui/EventCard";
-import { getEvents } from "@/sanity/lib/fetch";
+import { getEvents, getPageContent } from "@/sanity/lib/fetch";
 
 export const metadata: Metadata = {
   title: "Events - Upcoming Charity Fundraisers & Galas",
@@ -10,13 +10,14 @@ export const metadata: Metadata = {
 };
 
 export default async function EventsPage() {
-  const events = await getEvents();
+  const [events, pageContent] = await Promise.all([getEvents(), getPageContent("events")]);
 
   return (
     <>
       <PageBanner
-        title="Charity Events & Galas"
-        subtitle="Be a part of transformative gatherings, benefit galas, and community action drives."
+        title={pageContent?.banner?.title || "Charity Events & Galas"}
+        subtitle={pageContent?.banner?.subtitle}
+        backgroundImage={pageContent?.banner?.backgroundImage}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Events" },

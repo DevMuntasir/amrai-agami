@@ -1,14 +1,15 @@
 "use client";
 
 import React from "react";
+import { CounterItem } from "@/types";
+import { defaultGlobalSectionContent } from "@/sanity/lib/defaultContent";
 
-export const CounterSection: React.FC = () => {
-  const counters = [
-    { number: "25,000+", label: "Generous Donors", icon: "fa-solid fa-hand-holding-dollar" },
-    { number: "৳১২.৮M+", label: "Funds Distributed", icon: "fa-solid fa-coins" },
-    { number: "180+", label: "Completed Projects", icon: "fa-solid fa-school" },
-    { number: "5,400+", label: "Active Volunteers", icon: "fa-solid fa-users" },
-  ];
+interface CounterSectionProps {
+  items?: CounterItem[];
+}
+
+export const CounterSection: React.FC<CounterSectionProps> = ({ items }) => {
+  const counters = items || defaultGlobalSectionContent.counterSection.items;
 
   return (
     <section className="py-16 bg-slate-900 text-white relative overflow-hidden border-y border-slate-800">

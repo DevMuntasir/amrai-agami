@@ -2,31 +2,18 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { useLanguage } from "@/context/LanguageContext";
 import { VideoModal } from "@/components/ui/VideoModal";
+import { HomeHeroSlide } from "@/types";
+import { defaultGlobalSectionContent } from "@/sanity/lib/defaultContent";
 
-export const HeroSlider: React.FC = () => {
-  const { t } = useLanguage();
+interface HeroSliderProps {
+  slides?: HomeHeroSlide[];
+}
+
+export const HeroSlider: React.FC<HeroSliderProps> = ({ slides = defaultGlobalSectionContent.heroSlides }) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [videoOpen, setVideoOpen] = useState(false);
   const [currentVideoUrl, setCurrentVideoUrl] = useState("");
-
-  const slides = [
-    {
-      subtitle: t("hero_badge_1"),
-      title: t("hero_title_1"),
-      description: t("hero_desc_1"),
-      bg: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1920&q=85",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    },
-    {
-      subtitle: "Every Dollar Counts",
-      title: "Support Vulnerable Children & Families",
-      description: "Together, we can build schools, train doctors, and eradicate extreme poverty across developing communities.",
-      bg: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1920&q=85",
-      videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    },
-  ];
 
   const openVideo = (url: string) => {
     setCurrentVideoUrl(url);
@@ -45,7 +32,7 @@ export const HeroSlider: React.FC = () => {
         {/* Background Image with Overlay */}
         <div
           className="absolute inset-0 bg-cover bg-center transition-all duration-1000 transform scale-105"
-          style={{ backgroundImage: `url(${slides[activeSlide].bg})` }}
+          style={{ backgroundImage: `url(${slides[activeSlide].backgroundImage})` }}
         ></div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#00153d]/95 via-[#002A8C]/80 to-transparent"></div>
 
@@ -70,19 +57,19 @@ export const HeroSlider: React.FC = () => {
             {/* Buttons */}
             <div className="flex flex-wrap items-center gap-4">
               <Link
-                href="/donate-us"
+                href={slides[activeSlide].primaryButtonHref || "/donate-us"}
                 className="px-8 py-4 bg-[#F00101] hover:bg-[#d00000] text-white font-bold rounded-2xl shadow-xl transition transform hover:-translate-y-0.5 text-sm"
               >
-                {t("donate_now")}
+                {slides[activeSlide].primaryButtonLabel || "Donate Now"}
               </Link>
               <button
-                onClick={() => openVideo(slides[activeSlide].videoUrl)}
+                onClick={() => openVideo(slides[activeSlide].videoUrl || "")}
                 className="flex items-center gap-3 px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-bold rounded-2xl border border-white/20 transition backdrop-blur-md text-sm"
               >
                 <div className="w-8 h-8 rounded-full bg-[#F00101] text-white flex items-center justify-center text-xs">
                   <i className="fa-solid fa-play"></i>
                 </div>
-                <span>{t("hero_watch_video")}</span>
+                <span>{slides[activeSlide].secondaryButtonLabel || "Watch Video"}</span>
               </button>
             </div>
           </div>

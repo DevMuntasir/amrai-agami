@@ -5,25 +5,31 @@ import Link from "next/link";
 import { Cause } from "@/types";
 import { CauseCard } from "@/components/ui/CauseCard";
 import causesData from "@/data/causes.json";
+import { defaultGlobalSectionContent } from "@/sanity/lib/defaultContent";
 
 interface CausesSectionProps {
   showFilter?: boolean;
   limit?: number;
   title?: string;
   subtitle?: string;
+  viewAllLabel?: string;
+  items?: Cause[];
 }
 
 export const CausesSection: React.FC<CausesSectionProps> = ({
   showFilter = true,
   limit,
-  title = "Explore Our Causes & Campaigns",
-  subtitle = "Our Urgent Causes",
+  title = defaultGlobalSectionContent.causesSection.title,
+  subtitle = defaultGlobalSectionContent.causesSection.badge,
+  viewAllLabel = defaultGlobalSectionContent.causesSection.viewAllLabel,
+  items,
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
   const categories = ["All", "Education", "Medical", "Food"];
+  const sourceItems = items || (causesData as Cause[]);
 
-  const filteredCauses = causesData.filter((cause) => {
+  const filteredCauses = sourceItems.filter((cause) => {
     if (selectedCategory === "All") return true;
     return cause.category.toLowerCase() === selectedCategory.toLowerCase();
   });
@@ -65,7 +71,7 @@ export const CausesSection: React.FC<CausesSectionProps> = ({
               href="/causes"
               className="inline-flex items-center gap-2 text-xs font-bold text-slate-900 hover:text-amber-600 uppercase tracking-wider"
             >
-              <span>View All Causes</span>
+              <span>{viewAllLabel}</span>
               <i className="fa-solid fa-arrow-right"></i>
             </Link>
           )}

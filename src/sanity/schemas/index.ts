@@ -6,6 +6,8 @@ import { productSchema } from "./product";
 import { testimonialSchema } from "./testimonial";
 import { faqSchema } from "./faq";
 import { siteSettingsSchema } from "./siteSettings";
+import { globalSectionContentSchema } from "./globalSectionContent";
+import { pageContentSchema } from "./pageContent";
 
 export const schemaTypes = [
   causeSchema,
@@ -16,4 +18,6 @@ export const schemaTypes = [
   testimonialSchema,
   faqSchema,
   siteSettingsSchema,
+  globalSectionContentSchema,
+  pageContentSchema,
 ];

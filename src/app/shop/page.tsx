@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { PageBanner } from "@/components/layout/PageBanner";
 import { ProductCard } from "@/components/ui/ProductCard";
-import { getProducts } from "@/sanity/lib/fetch";
+import { getPageContent, getProducts } from "@/sanity/lib/fetch";
 
 export const metadata: Metadata = {
   title: "Charity Shop - 100% Profits Support Our Campaigns",
@@ -10,13 +10,14 @@ export const metadata: Metadata = {
 };
 
 export default async function ShopPage() {
-  const products = await getProducts();
+  const [products, pageContent] = await Promise.all([getProducts(), getPageContent("shop")]);
 
   return (
     <>
       <PageBanner
-        title="Our Charity Shop"
-        subtitle="100% of all profits from your purchases directly support children's education and clean water wells."
+        title={pageContent?.banner?.title || "Our Charity Shop"}
+        subtitle={pageContent?.banner?.subtitle}
+        backgroundImage={pageContent?.banner?.backgroundImage}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Shop" },

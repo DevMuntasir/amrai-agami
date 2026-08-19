@@ -3,19 +3,25 @@ import Link from "next/link";
 import { EventItem } from "@/types";
 import { EventCard } from "@/components/ui/EventCard";
 import eventsData from "@/data/events.json";
+import { defaultGlobalSectionContent } from "@/sanity/lib/defaultContent";
 
 interface EventsSectionProps {
   limit?: number;
   title?: string;
   subtitle?: string;
+  viewAllLabel?: string;
+  items?: EventItem[];
 }
 
 export const EventsSection: React.FC<EventsSectionProps> = ({
   limit,
-  title = "Join Our Upcoming Charity Events",
-  subtitle = "Events & Fundraisers",
+  title = defaultGlobalSectionContent.eventsSection.title,
+  subtitle = defaultGlobalSectionContent.eventsSection.badge,
+  viewAllLabel = defaultGlobalSectionContent.eventsSection.viewAllLabel,
+  items,
 }) => {
-  const displayedEvents = limit ? eventsData.slice(0, limit) : eventsData;
+  const sourceItems = items || (eventsData as EventItem[]);
+  const displayedEvents = limit ? sourceItems.slice(0, limit) : sourceItems;
 
   return (
     <section className="py-20 md:py-28 bg-white">
@@ -33,7 +39,7 @@ export const EventsSection: React.FC<EventsSectionProps> = ({
             href="/events"
             className="inline-flex items-center gap-2 text-xs font-bold text-slate-900 hover:text-amber-600 uppercase tracking-wider"
           >
-            <span>View All Events</span>
+            <span>{viewAllLabel}</span>
             <i className="fa-solid fa-arrow-right"></i>
           </Link>
         </div>

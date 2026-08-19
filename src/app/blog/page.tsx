@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { PageBanner } from "@/components/layout/PageBanner";
 import { BlogCard } from "@/components/ui/BlogCard";
-import { getPosts } from "@/sanity/lib/fetch";
+import { getPageContent, getPosts } from "@/sanity/lib/fetch";
 
 export const metadata: Metadata = {
   title: "Blog & Stories - Amrai Agami",
@@ -10,13 +10,14 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage() {
-  const posts = await getPosts();
+  const [posts, pageContent] = await Promise.all([getPosts(), getPageContent("blog")]);
 
   return (
     <>
       <PageBanner
-        title="Our News & Stories"
-        subtitle="Insights, field stories, and transparency reports on how your donations impact real lives."
+        title={pageContent?.banner?.title || "Our News & Stories"}
+        subtitle={pageContent?.banner?.subtitle}
+        backgroundImage={pageContent?.banner?.backgroundImage}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Blog" },

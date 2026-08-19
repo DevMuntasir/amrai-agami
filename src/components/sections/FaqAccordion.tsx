@@ -4,8 +4,13 @@ import React, { useState } from "react";
 import { FaqItem } from "@/types";
 import faqsData from "@/data/faqs.json";
 
-export const FaqAccordion: React.FC = () => {
+interface FaqAccordionProps {
+  items?: FaqItem[];
+}
+
+export const FaqAccordion: React.FC<FaqAccordionProps> = ({ items }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const sourceItems = items || (faqsData as FaqItem[]);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -13,7 +18,7 @@ export const FaqAccordion: React.FC = () => {
 
   return (
     <div className="space-y-4">
-      {faqsData.map((faq: FaqItem, index: number) => {
+      {sourceItems.map((faq: FaqItem, index: number) => {
         const isOpen = openIndex === index;
         return (
           <div

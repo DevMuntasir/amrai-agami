@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { PageBanner } from "@/components/layout/PageBanner";
 import { FaqAccordion } from "@/components/sections/FaqAccordion";
-import { getFaqs } from "@/sanity/lib/fetch";
+import { getFaqs, getPageContent } from "@/sanity/lib/fetch";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions (FAQ) - Donations & Volunteering",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default async function FaqPage() {
-  const faqs = await getFaqs();
+  const [faqs, pageContent] = await Promise.all([getFaqs(), getPageContent("faq")]);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -33,15 +33,16 @@ export default async function FaqPage() {
       />
 
       <PageBanner
-        title="Frequently Asked Questions"
-        subtitle="Common questions about our humanitarian initiatives, financial transparency, and volunteering."
+        title={pageContent?.banner?.title || "Frequently Asked Questions"}
+        subtitle={pageContent?.banner?.subtitle}
+        backgroundImage={pageContent?.banner?.backgroundImage}
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "FAQ" },
         ]}
       />
 
-      <FaqAccordion />
+      <FaqAccordion items={faqs} />
     </>
   );
 }
