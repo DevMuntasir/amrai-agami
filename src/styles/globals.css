@@ -10,17 +10,17 @@
   --color-brand-red-hover: #d30101;
   --color-brand-red-50: #fef2f2;
   --color-brand-red-100: #fee2e2;
-  --font-sans: var(--font-source-sans-3), var(--font-hind-siliguri), sans-serif;
-  --font-serif: var(--font-cormorant-garamond), var(--font-hind-siliguri), serif;
+  --font-sans: var(--font-work-sans), var(--font-hind-siliguri), sans-serif;
+  --font-serif: var(--font-archivo), var(--font-hind-siliguri), sans-serif;
   --font-mono: "IBM Plex Mono", "SFMono-Regular", monospace;
 }
 
 :root {
   --base-color: #002A8C;
   --accent-color: #F00101;
-  --font-body: var(--font-source-sans-3), var(--font-hind-siliguri), sans-serif;
-  --font-display: var(--font-cormorant-garamond), var(--font-hind-siliguri), serif;
-  --font-accent: var(--font-marcellus), var(--font-source-sans-3), serif;
+  --font-body: var(--font-work-sans), var(--font-hind-siliguri), sans-serif;
+  --font-display: var(--font-archivo), var(--font-hind-siliguri), sans-serif;
+  --font-accent: var(--font-manrope), var(--font-work-sans), sans-serif;
 }
 
 html {
@@ -30,8 +30,8 @@ html {
 body {
   font-family: var(--font-body);
   font-size: 1rem;
-  line-height: 1.65;
-  letter-spacing: 0.01em;
+  line-height: 1.7;
+  letter-spacing: -0.005em;
   text-rendering: optimizeLegibility;
 }
 
@@ -42,14 +42,14 @@ h4,
 h5,
 h6 {
   font-family: var(--font-display);
-  letter-spacing: -0.02em;
-  line-height: 1.08;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
   font-weight: 700;
   text-wrap: balance;
 }
 
 h1 {
-  letter-spacing: -0.035em;
+  letter-spacing: -0.045em;
 }
 
 button,
@@ -69,7 +69,8 @@ nav,
 
 .font-accent {
   font-family: var(--font-accent);
-  letter-spacing: 0.02em;
+  letter-spacing: -0.01em;
+  font-weight: 600;
 }
 
 .page-banner h1,

@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
 import {
-  Source_Sans_3,
-  Cormorant_Garamond,
+  Work_Sans,
+  Archivo,
   Hind_Siliguri,
-  Marcellus,
+  Manrope,
 } from "next/font/google";
 import "@/styles/globals.css";
 import { AppShell } from "@/components/layout/AppShell";
 import { CartProvider } from "@/context/CartContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 
-const sourceSans3 = Source_Sans_3({
+const workSans = Work_Sans({
   subsets: ["latin"],
-  variable: "--font-source-sans-3",
+  variable: "--font-work-sans",
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
@@ -24,17 +24,17 @@ const hindSiliguri = Hind_Siliguri({
   display: "swap",
 });
 
-const cormorantGaramond = Cormorant_Garamond({
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-cormorant-garamond",
-  weight: ["500", "600", "700"],
+  variable: "--font-archivo",
+  weight: ["600", "700", "800"],
   display: "swap",
 });
 
-const marcellus = Marcellus({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-marcellus",
-  weight: ["400"],
+  variable: "--font-manrope",
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -142,7 +142,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${sourceSans3.variable} ${hindSiliguri.variable} ${cormorantGaramond.variable} ${marcellus.variable}`}
+      className={`${workSans.variable} ${hindSiliguri.variable} ${archivo.variable} ${manrope.variable}`}
     >
       <head>
         <link rel="stylesheet" href="/assets/fonts/css/all.min.css" />
