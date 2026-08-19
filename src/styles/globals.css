@@ -10,11 +10,79 @@
   --color-brand-red-hover: #d30101;
   --color-brand-red-50: #fef2f2;
   --color-brand-red-100: #fee2e2;
+  --font-sans: var(--font-source-sans-3), var(--font-hind-siliguri), sans-serif;
+  --font-serif: var(--font-cormorant-garamond), var(--font-hind-siliguri), serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", monospace;
 }
 
 :root {
   --base-color: #002A8C;
   --accent-color: #F00101;
+  --font-body: var(--font-source-sans-3), var(--font-hind-siliguri), sans-serif;
+  --font-display: var(--font-cormorant-garamond), var(--font-hind-siliguri), serif;
+  --font-accent: var(--font-marcellus), var(--font-source-sans-3), serif;
+}
+
+html {
+  font-family: var(--font-body);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+h1 {
+  letter-spacing: -0.035em;
+}
+
+button,
+input,
+select,
+textarea,
+label,
+nav,
+.topbar,
+.header {
+  font-family: var(--font-body);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+  letter-spacing: 0.02em;
+}
+
+.page-banner h1,
+section h1,
+section h2 {
+  text-wrap: balance;
+}
+
+p,
+li,
+a,
+span {
+  text-wrap: pretty;
 }
 
 /* Swiper custom styles */

@@ -1,28 +1,40 @@
 import type { Metadata } from "next";
-import { Nunito_Sans, Outfit, Caveat } from "next/font/google";
+import {
+  Source_Sans_3,
+  Cormorant_Garamond,
+  Hind_Siliguri,
+  Marcellus,
+} from "next/font/google";
 import "@/styles/globals.css";
 import { AppShell } from "@/components/layout/AppShell";
 import { CartProvider } from "@/context/CartContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 
-const nunitoSans = Nunito_Sans({
+const sourceSans3 = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-nunito-sans",
-  weight: ["300", "400", "600", "700", "800", "900"],
+  variable: "--font-source-sans-3",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
-  weight: ["400", "500", "600", "700", "800", "900"],
+const hindSiliguri = Hind_Siliguri({
+  subsets: ["bengali", "latin"],
+  variable: "--font-hind-siliguri",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const caveat = Caveat({
+const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-caveat",
-  weight: ["400", "600", "700"],
+  variable: "--font-cormorant-garamond",
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
+
+const marcellus = Marcellus({
+  subsets: ["latin"],
+  variable: "--font-marcellus",
+  weight: ["400"],
   display: "swap",
 });
 
@@ -128,7 +140,10 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${nunitoSans.variable} ${outfit.variable} ${caveat.variable}`}>
+    <html
+      lang="en"
+      className={`${sourceSans3.variable} ${hindSiliguri.variable} ${cormorantGaramond.variable} ${marcellus.variable}`}
+    >
       <head>
         <link rel="stylesheet" href="/assets/fonts/css/all.min.css" />
         <link rel="stylesheet" href="/assets/fonts/css/charifund.css" />
