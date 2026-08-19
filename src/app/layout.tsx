@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito_Sans, Outfit, Caveat } from "next/font/google";
 import "@/styles/globals.css";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import { AppShell } from "@/components/layout/AppShell";
 import { CartProvider } from "@/context/CartContext";
 import { LanguageProvider } from "@/context/LanguageContext";
 
@@ -143,10 +141,7 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-white text-gray-800 selection:bg-amber-500 selection:text-slate-950 flex flex-col min-h-screen">
         <LanguageProvider>
           <CartProvider>
-            <Header />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-            <ScrollToTop />
+            <AppShell>{children}</AppShell>
           </CartProvider>
         </LanguageProvider>
       </body>
